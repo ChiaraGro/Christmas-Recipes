@@ -8,6 +8,7 @@ import { SideDishesComponent } from './pages/side-dishes/side-dishes.component';
 import { MeatTypesContainerComponent } from './components/meat-types-container/meat-types-container.component';
 import { SearchComponent } from './components/search/search.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RecipesComponent } from './components/recipes/recipes.component';
   ],
   imports: [
     CommonModule,
-    MealTypesRoutingModule
+    MealTypesRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class MealTypesModule { }

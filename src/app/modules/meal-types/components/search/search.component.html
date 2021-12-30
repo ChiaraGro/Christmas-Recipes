@@ -1,1 +1,6 @@
-<p>search works!</p>
+<div class="w-100 p-2">
+    <div class="d-flex align-items-center">
+        <input type="text" [formControl]="searchText">
+        <button class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+</div>
