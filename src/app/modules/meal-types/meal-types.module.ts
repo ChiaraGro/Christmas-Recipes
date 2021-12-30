@@ -6,6 +6,8 @@ import { MainCoursesComponent } from './pages/main-courses/main-courses.componen
 import { DessertsComponent } from './pages/desserts/desserts.component';
 import { SideDishesComponent } from './pages/side-dishes/side-dishes.component';
 import { MeatTypesContainerComponent } from './components/meat-types-container/meat-types-container.component';
+import { SearchComponent } from './components/search/search.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { MeatTypesContainerComponent } from './components/meat-types-container/m
     MainCoursesComponent,
     DessertsComponent,
     SideDishesComponent,
-    MeatTypesContainerComponent
+    MeatTypesContainerComponent,
+    SearchComponent,
+    RecipesComponent
   ],
   imports: [
     CommonModule,
