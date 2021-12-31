@@ -113,3 +113,28 @@ export interface Recipe {
 export interface IDetailsRes {
     recipes: Recipe[];
 }
+
+export interface BasicRecipe {
+    id: number;
+    title: string;
+    calories: number;
+    carbs: string;
+    fat: string;
+    image: string;
+    imageType: string;
+    protein: string;
+}
+
+export interface IBasicRes {
+    offset: number;
+    number: number;
+    results: BasicRecipe[];
+    totalResults: number;
+}
+
+export interface IRecipe {
+    id: number;
+    title: string;
+    image: string;
+    imageType: string;
+}

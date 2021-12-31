@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MeatTypesContainerComponent } from './components/meat-types-container/meat-types-container.component';
-import { DessertsComponent } from './pages/desserts/desserts.component';
-import { MainCoursesComponent } from './pages/main-courses/main-courses.component';
-import { SideDishesComponent } from './pages/side-dishes/side-dishes.component';
+import { SearchContainerComponent } from './pages/search-container/search-container.component';
 
 const routes: Routes = [
   {
@@ -11,19 +9,12 @@ const routes: Routes = [
     component: MeatTypesContainerComponent,
     children: [
       {
-        path: 'main-courses',
-        component: MainCoursesComponent
-      },
-      {
-        path: 'side-dishes',
-        component: SideDishesComponent
-      },
-      {
-        path: 'desserts',
-        component: DessertsComponent
+        path: ':mealType',
+        component: SearchContainerComponent
       }
     ]
   }
+
 ];
 
 @NgModule({

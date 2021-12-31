@@ -1,5 +1,7 @@
-<div *ngIf="(recipes$ | async) as recipes" class="d-flex flex-column">
-    <div *ngFor="let recipe of recipes">
+<div *ngIf="(recipes$ | async) as recipes" class=" d-flex flex-column">
+    <div *ngFor="let recipe of recipes" class="container-fluid d-flex flex-column align-items-center my-3">
+        <img src="{{recipe.image}}">
         <h3 >{{recipe.title}}</h3>
     </div>
 </div>
+

@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MeatTypesContainerComponent } from './modules/meal-types/components/meat-types-container/meat-types-container.component';
-import { DessertsComponent } from './modules/meal-types/pages/desserts/desserts.component';
-import { MainCoursesComponent } from './modules/meal-types/pages/main-courses/main-courses.component';
-import { SideDishesComponent } from './modules/meal-types/pages/side-dishes/side-dishes.component';
 
 const routes: Routes = [
   { 
