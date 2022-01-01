@@ -1,7 +1,7 @@
 <app-search (onSearch)="search($event)"></app-search>
 <app-recipes [recipes$]="recipes$" (selectRecipe)="getRecipeById($event)"></app-recipes>
-<ng-container *ngIf="(currentRecipe$ | async)">
-    <div class="modal-container">
-        <app-recipe-modal class="col-12 col-sm-8 col-md-7 col-xl-5 rounded shadow-lg m-0 p-0 m-lg-5" [recipeDetails$]="currentRecipe$" (closeModal)="closeModal()"></app-recipe-modal>
+<ng-container *ngIf="modalSkeletonLoader || (currentRecipe$ | async)" >
+    <div class="modal-container" (click)="closeModal()"[@onOpen]>
+        <app-recipe-modal class="mod col-12 col-sm-10 col-md-9 col-xl-6 m-0 p-0" [recipeDetails$]="currentRecipe$" [modalSkeletonLoader]="modalSkeletonLoader" (closeModal)="closeModal()" (click)="$event.stopPropagation()"></app-recipe-modal>
     </div>
 </ng-container>

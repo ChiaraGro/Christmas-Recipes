@@ -1,12 +1,18 @@
 .modal-container{
     width:100vw;
-    height:100vh;
-    position:fixed;
+    position:absolute;
     top:0;
     left:0;
     z-index:2;
     display:flex;
     justify-content:center;
     align-items: center;
-    background-color:rgba(0,0,0,0.5)
+    padding:80px 0px;
+    .mod{
+        position:relative;
+        top:50px;
+        box-shadow:0px 0px 100px rgba(0,0,0,.3);
+        border-radius:16px;
+        overflow:hidden
+    }
 }

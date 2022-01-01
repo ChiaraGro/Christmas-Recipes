@@ -8,6 +8,7 @@ import { SearchComponent } from './components/search/search.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipeModalComponent } from './components/recipe-modal/recipe-modal.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RecipeModalComponent } from './components/recipe-modal/recipe-modal.com
   imports: [
     CommonModule,
     MealTypesRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSkeletonLoaderModule
   ]
 })
 export class MealTypesModule { }

@@ -11,9 +11,17 @@ export class RecipeModalComponent implements OnInit {
   
   @Output() closeModal = new EventEmitter();
   @Input() recipeDetails$?: Observable<RecipeDetails>;
+  @Input() modalSkeletonLoader = false;
 
+  showSummary = false;
+
+  imgLoading: boolean = true
   constructor() { }
-
+  
+  onLoad() {
+      this.imgLoading = false;
+  }
+  
   ngOnInit(): void {
   }
 
