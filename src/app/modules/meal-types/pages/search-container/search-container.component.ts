@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { BasicRecipe, IRecipe, Recipe } from 'src/app/shared/models/recipe.model';
+import { RecipeDetails } from 'src/app/shared/models/recipeDetail.model';
 import { RecipesService } from '../../services/recipes.service';
 
 @Component({
@@ -11,9 +12,11 @@ import { RecipesService } from '../../services/recipes.service';
   styleUrls: ['./search-container.component.scss']
 })
 export class SearchContainerComponent implements OnInit {
+
   mealType!: string;
-  recipes$!: Observable<IRecipe[]>
-  
+  recipes$!: Observable<IRecipe[]>;
+  currentRecipe$?: Observable<RecipeDetails>;
+
   constructor(
     private readonly route: ActivatedRoute,
     private readonly recipeService: RecipesService
@@ -31,6 +34,14 @@ export class SearchContainerComponent implements OnInit {
   search(text: string){
     console.log(this.mealType)
     this.recipes$ = this.recipeService.search(text,'complexSearch', this.mealType)
+  }
+
+  getRecipeById(id: number){
+    this.currentRecipe$ = this.recipeService.getRecipeById(id)
+  }
+
+  closeModal(){
+    this.currentRecipe$ = undefined
   }
 
 }

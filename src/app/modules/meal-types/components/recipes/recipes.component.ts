@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BasicRecipe, IRecipe, Recipe } from 'src/app/shared/models/recipe.model';
 
@@ -8,7 +8,7 @@ import { BasicRecipe, IRecipe, Recipe } from 'src/app/shared/models/recipe.model
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-
+  @Output() selectRecipe = new EventEmitter<number>();
   @Input() recipes$!: Observable<IRecipe[]>;
 
   constructor() { }

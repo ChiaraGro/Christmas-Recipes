@@ -1,0 +1,12 @@
+<ng-container *ngIf="(recipeDetails$ | async) as recipe">
+    <div class="card overflow-hidden">
+        <img [src]="recipe.image" class="img-fluid">
+        <div class="w-100 p-3 d-flex flex-column">
+            <h4>{{recipe.title}}</h4>
+            <p [innerHTML]="recipe.summary"></p>
+            <p>ecc ecc...</p>
+            <button class="btn btn-warning col-1 align-self-end" (click)="closeModal.emit()">X</button>
+        </div>
+        
+    </div>
+</ng-container>

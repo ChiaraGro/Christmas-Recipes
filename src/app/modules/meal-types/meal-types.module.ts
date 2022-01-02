@@ -7,6 +7,7 @@ import { MeatTypesContainerComponent } from './components/meat-types-container/m
 import { SearchComponent } from './components/search/search.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecipeModalComponent } from './components/recipe-modal/recipe-modal.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchContainerComponent,
     MeatTypesContainerComponent,
     SearchComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipeModalComponent
   ],
   imports: [
     CommonModule,
