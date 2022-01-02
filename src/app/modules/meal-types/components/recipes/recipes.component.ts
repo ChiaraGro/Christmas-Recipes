@@ -11,6 +11,8 @@ export class RecipesComponent implements OnInit {
   @Output() selectRecipe = new EventEmitter<number>();
   @Input() recipes$!: Observable<IRecipe[]>;
 
+  @Input() skeletonLoader = false;
+
   constructor() { }
 
   ngOnInit(): void {
