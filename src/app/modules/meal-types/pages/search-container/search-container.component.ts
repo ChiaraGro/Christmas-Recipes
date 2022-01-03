@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { onOpen } from 'src/app/shared/models/animations/toggle.animation';
 import { IRecipe} from 'src/app/shared/models/recipe.model';
 import { RecipeDetails } from 'src/app/shared/models/recipeDetail.model';
+import { SearchForm } from '../../components/search/search.component';
 import { RecipesService } from '../../services/recipes.service';
 
 @Component({
@@ -29,14 +30,17 @@ export class SearchContainerComponent implements OnInit {
     this.route.params
     .subscribe(params => {
       this.mealType = params.mealType;
-      this.search('')
+      this.search({text: ''})
     })
   }
 
-  search(text: string){
-    this.recipes$ = this.recipeService.search(text,'complexSearch', this.mealType)
+  search(form: SearchForm){
+    this.recipes$ = this.recipeService.search(form,'complexSearch', this.mealType)
   }
 
+  // search(form: SearchForm){
+  //   console.log(form)
+  // }
   getRecipeById(id: number){
     this.modalSkeletonLoader = true;
     this.currentRecipe$ = this.recipeService.getRecipeById(id)
