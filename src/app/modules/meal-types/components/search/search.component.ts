@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { objectEach } from 'highcharts';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+
 
 export interface SearchForm {
   text: string;
@@ -33,9 +33,6 @@ export class SearchComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { }
 
-  // search(){
-  //   this.searchText.valid && this.onSearch.emit(this.searchText.value)
-  // }
   find(){
  
     this.searchText.valid && this.onSearch.emit({

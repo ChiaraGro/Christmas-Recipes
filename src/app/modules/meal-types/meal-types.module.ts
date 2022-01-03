@@ -9,6 +9,7 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipeModalComponent } from './components/recipe-modal/recipe-modal.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MeatTypesContainerComponent,
     SearchComponent,
     RecipesComponent,
-    RecipeModalComponent
+    RecipeModalComponent,
+    RecipeCardComponent
   ],
   imports: [
     CommonModule,

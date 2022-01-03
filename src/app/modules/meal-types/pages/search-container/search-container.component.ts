@@ -38,9 +38,6 @@ export class SearchContainerComponent implements OnInit {
     this.recipes$ = this.recipeService.search(form,'complexSearch', this.mealType)
   }
 
-  // search(form: SearchForm){
-  //   console.log(form)
-  // }
   getRecipeById(id: number){
     this.modalSkeletonLoader = true;
     this.currentRecipe$ = this.recipeService.getRecipeById(id)
