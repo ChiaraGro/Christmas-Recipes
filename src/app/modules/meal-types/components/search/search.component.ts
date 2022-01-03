@@ -1,5 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { objectEach } from 'highcharts';
+
+export interface SearchForm {
+  text: string;
+  intolerances?: string[];
+  cuisines?: string[];
+  vegan?: boolean;
+  vegetarian?: boolean
+}
 
 @Component({
   selector: 'app-search',
@@ -8,14 +17,44 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  @Output() onSearch = new EventEmitter<string>();
+  @Output() onSearch = new EventEmitter<SearchForm>();
 
-  searchText = new FormControl('', Validators.required);
+  _cuisines = ['African','American','British','Cajun','Caribbean','Chinese','Eastern European','European','French','German','Greek','Indian','Irish','Italian','Japanese','Jewish','Korean','Latin American','Mediterranean','Mexican','Middle Eastern','Nordic','Southern','Spanish','Thai','Vietnamese'];
+  _intolerances = ['Dairy','Egg','Gluten','Grain','Peanut','Seafood','Sesame','Shellfish','Soy','Sulfite','Tree Nut','Wheat'];
 
-  constructor() { }
+  searchText = new FormControl('', [Validators.required])
+  intoleranceGroup = this.formBuilder.group({...this.buildFilters(this._intolerances)})
+  cuisinesGroup = this.formBuilder.group({...this.buildFilters(this._cuisines)})
+  vegan = new FormControl(false);
+  vegetarian = new FormControl(false);
 
-  search(){
-    this.searchText.valid && this.onSearch.emit(this.searchText.value)
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
+
+  // search(){
+  //   this.searchText.valid && this.onSearch.emit(this.searchText.value)
+  // }
+  find(){
+ 
+    this.searchText.valid && this.onSearch.emit({
+      text: this.searchText.value,
+      intolerances: [...Object.entries(this.intoleranceGroup.value).filter(el => el[1] == true).map(el => el[0])],
+      cuisines: [...Object.entries(this.cuisinesGroup.value).filter(el => el[1] == true).map(el => el[0])],
+      vegan: this.vegan.value,
+      vegetarian: this.vegetarian.value
+    })
+   
+  }
+
+  buildFilters(filter: string[]){
+    const formGroup: { [key:string]:boolean } = {};
+    filter.forEach(int => {
+      formGroup[int] = false 
+    })
+    return formGroup
+    
   }
 
   ngOnInit(): void {

@@ -1,0 +1,85 @@
+.search-input-container{
+    border-bottom:solid 2px black;
+    input{
+        border:none;
+        background-color:transparent;
+        &:focus{
+            outline:none;
+            border:none
+        }
+    }
+}
+.btn-search{
+    border:none;
+    outline:none;
+    border-radius:20px
+}
+.dropdown-container{
+    position:relative;
+    .dropdown-list{
+        max-height:0;
+        transition:.2s;
+        overflow:hidden;
+        opacity:0;
+        width:240px;
+        position:absolute;
+        top:0;
+        left:-50%;
+        padding-top:20px;
+        &:last-of-type{
+            width:300px
+        }
+    }
+    
+}
+.dropdown-container:hover > .dropdown-list{
+    opacity:1;
+    max-height:600px;
+}
+.custom-checkbox{
+    display:none
+}
+.custom-checkbox ~ label{
+    opacity:.7;
+    &:hover{
+        opacity:.9
+    }
+}
+.custom-checkbox:checked ~ label{
+    opacity:1
+}
+.checkbox{
+    width:14px;
+    height:14px;
+    border-radius: 2px;
+}
+.check{
+    display:none;
+    top:0;
+    
+}
+.custom-checkbox:checked ~ label .check{
+    display:flex;
+    align-items: center;
+    justify-content:center
+}
+ul{
+    list-style:none;
+    padding-left:0
+}
+.cstm-select{
+    border:none;
+    max-height:auto;
+    height:auto;
+    overflow-y:scroll;
+    &:focus{
+        border:none;
+        outline:none
+    }
+    option:checked{
+        background-color: burlywood;
+    }
+}
+.cstm-select::-webkit-scrollbar{
+    display:none
+}

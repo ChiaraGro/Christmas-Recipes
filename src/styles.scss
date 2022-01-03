@@ -2,3 +2,32 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+@import 'src/app/shared/models/utilities/palette.scss';
+.bg-1{
+    background-color: $color1
+}
+.bg-2{
+    background-color: $color2
+}
+.bg-3{
+    background-color: $color3
+}
+.bg-4{
+    background-color: $color4
+}
+.text-1{
+    color: $color1
+}
+.text-2{
+    color: $color2
+}
+.text-3{
+    color: $color3
+}
+.text-4{
+    color: $color4
+}
+.border-4{
+    border-color:$color4!important
+}
