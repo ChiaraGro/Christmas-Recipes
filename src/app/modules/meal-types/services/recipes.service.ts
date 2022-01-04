@@ -27,7 +27,7 @@ export class RecipesService {
     
       .set('apiKey', environment.apiKey)
       .set('type', mealType)
-      .set('number', 5);
+      .set('number', 9);
       params = search.text != '' ?  params.set('query',search.text) : params;
       params = search.cuisines?.length ? params.set('cuisine',search.cuisines.toString()) : params;
       params = search.intolerances?.length ? params.set('intolerances',search.intolerances.toString()): params;
@@ -39,6 +39,7 @@ export class RecipesService {
         map(res => 'results' in res ? res.results : res.recipes),
         map(recipes => recipes.map(recipe => ({id:recipe.id, title:recipe.title, image:recipe.image, imageType:recipe.imageType}))),
         tap(recipes => search.text == '' && sessionStorage.setItem(mealType, JSON.stringify(recipes))) //se la chiamata è di tipo random, mette i data nel session storage
+        
       )  
   }
 

@@ -12,9 +12,14 @@
 .btn-search{
     border:none;
     outline:none;
-    border-radius:20px
+    border-radius:20px;
+    transition:.2s;
+    &:hover{
+        background-color:#8fc07b
+    }
 }
 .dropdown-container{
+    cursor:pointer;
     position:relative;
     .dropdown-list{
         max-height:0;
@@ -23,8 +28,8 @@
         opacity:0;
         width:240px;
         position:absolute;
-        top:0;
-        left:-50%;
+        top:20px;
+        left:-10%;
         padding-top:20px;
         &:last-of-type{
             width:300px
@@ -62,6 +67,10 @@
     display:flex;
     align-items: center;
     justify-content:center
+}
+.custom-checkbox ~ label{
+    cursor:pointer;
+
 }
 ul{
     list-style:none;

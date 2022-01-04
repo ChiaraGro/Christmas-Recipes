@@ -1,85 +1,97 @@
-<div class="d-flex w-100 p-2 bg-2">
-    <div class="d-flex align-items-center w-100">
-        <form class="d-flex align-items-center justify-content-around w-100" (keydown.enter)="$event.preventDefault; find()">
-            <div class="mr-4 d-flex">
+<div class="d-flex w-100 p-2 mt-5 position-relative" style="z-index:2">
+    <div class="d-flex align-items-center w-100 px-4">
+        <form class="d-flex flex-column flex-lg-row align-items-center align-items-lg-end justify-content-between w-100 text-4" (keydown.enter)="$event.preventDefault(); find()">
+            <div class="d-flex flex-column flex-sm-row align-items-center">
+                <div class="dropdown-container">
+                    <div class="d-flex align-items-center mb-2 mb-sm-0 mx-2 mx-md-4">
+                        <p class="mb-0 mr-1"><b>Intolerances</b></p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+    
+                    <div class="dropdown-list">
+                        <div class="dropdown-selects w-100 bg-3 rounded shadow-lg p-3 " [formGroup]="intoleranceGroup">
+                            <ul class="d-flex flex-wrap mb-0 p-0">
+                                <li *ngFor="let intolerance of _intolerances" class="col-6 p-0">
+                                    <input class="custom-checkbox" type="checkbox" [id]="intolerance" value="{{intolerance}}" [formControlName]="intolerance">
+                                    <label for="{{intolerance}}" class="d-flex justify-content-start align-items-center mb-1">
+                                        <div class="checkbox border border-dark mr-2">
+                                            <div class="check" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <small><b>{{intolerance}}</b> </small>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <div class="d-flex align-items-center mb-2 mb-sm-0 mx-2 mx-md-4">
+                        <p  class="mb-0 mr-1"><b>Cuisines</b></p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                    <div class="dropdown-list">
+                        <div class="dropdown-selects w-100 bg-3 rounded shadow-lg p-3 " [formGroup]="cuisinesGroup">
+                            <ul class="d-flex flex-wrap mb-0 p-0">
+                                <li *ngFor="let cuisine of _cuisines" class="col-6 p-0">
+                                    <input class="custom-checkbox" type="checkbox" [id]="cuisine" name="cuisine" value="{{cuisine}}" [formControlName]="cuisine">
+                                    <label for="{{cuisine}}" class="d-flex justify-content-start align-items-center mb-1">
+                                        <div class="checkbox border border-dark mr-2">
+                                            <div class="check" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                                </svg>    
+                                            </div>
+                                        </div>
+                                        <small><b>{{cuisine}}</b></small>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+                <div class="d-flex max-2 mx-md-4">
+                    <div class="mx-4">
+                        <input type="checkbox" class="custom-checkbox" id="vegetarian" name="diet" [formControl]="vegetarian"value="vegetarian">
+                        <label for="vegetarian" class="m-0 d-flex align-items-center">
+                            <b>Vegetarian</b>
+                            <div class="checkbox border border-dark ml-2">
+                                <div class="check" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                    </svg>    
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="max-2 mx-md-4">
+                        <input type="checkbox" class="custom-checkbox" id="vegan" name="diet" [formControl]="vegan" value="vegan">
+                        <label for="vegan"  class="m-0 d-flex align-items-center">
+                            <b>Vegan</b>
+                            <div class="checkbox border border-dark ml-2">
+                                <div class="check" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                    </svg>    
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-4 d-flex mt-4">
                 <div class="search-input-container">
                     <svg width="23" height="18" viewBox="0 0 29 22" class="mb-1 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.9647 0C13.4305 0 8.92934 4.34581 8.92934 9.68596C8.92934 11.256 9.32093 12.7394 10.0115 14.0521L0 20.5369L1.01616 21.9986L10.9813 15.545C12.8157 17.8682 15.7113 19.3719 18.9647 19.3719C24.4988 19.3719 29 15.0261 29 9.68596C29 4.34581 24.4988 0 18.9647 0ZM18.9647 17.6108C14.4368 17.6108 10.7539 14.0562 10.7539 9.68596C10.7539 5.31576 14.4382 1.76108 18.9647 1.76108C23.4911 1.76108 27.1754 5.31576 27.1754 9.68596C27.1754 14.0562 23.4925 17.6108 18.9647 17.6108Z" fill="black"/>
                     </svg>  
-                    <input type="text" [formControl]="searchText" (keydown.enter)="$event.preventDefault;find()">
-                </div>
-                <button type="button" class="btn-search bg-3 text-2 px-3 mx-2" (click)="find()">Search</button>
-            </div>
-            <div class="dropdown-container">
-                <p class="mb-0">Intolerances</p>
-                <div class="dropdown-list">
-                    <div class="dropdown-selects w-100 bg-3 rounded shadow-lg p-3 " [formGroup]="intoleranceGroup">
-                        <ul class="d-flex flex-wrap mb-0 p-0">
-                            <li *ngFor="let intolerance of _intolerances" class="col-6 p-0">
-                                <input class="custom-checkbox" type="checkbox" [id]="intolerance" value="{{intolerance}}" [formControlName]="intolerance">
-                                <label for="{{intolerance}}" class="d-flex justify-content-start align-items-center mb-1">
-                                    <div class="checkbox border border-dark mr-2">
-                                        <div class="check" >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <small>{{intolerance}} </small>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="dropdown-container">
-                <p  class="mb-0">Cuisines</p>
-                <div class="dropdown-list">
-                    <div class="dropdown-selects w-100 bg-3 rounded shadow-lg p-3 " [formGroup]="cuisinesGroup">
-                        <ul class="d-flex flex-wrap mb-0 p-0">
-                            <li *ngFor="let cuisine of _cuisines" class="col-6 p-0">
-                                <input class="custom-checkbox" type="checkbox" [id]="cuisine" name="cuisine" value="{{cuisine}}" [formControlName]="cuisine">
-                                <label for="{{cuisine}}" class="d-flex justify-content-start align-items-center mb-1">
-                                    <div class="checkbox border border-dark mr-2">
-                                        <div class="check" >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                                            </svg>    
-                                        </div>
-                                    </div>
-                                    <small>{{cuisine}} </small>
-                                </label>
-                            </li>
-                        </ul>
-                    </div> 
-                </div>
-            </div>
-            <div class="d-flex mx-3">
-                <div class="mr-3">
-                    <input type="checkbox" class="custom-checkbox" id="vegetarian" name="diet" [formControl]="vegetarian"value="vegetarian">
-                    <label for="vegetarian" class="m-0 d-flex align-items-center">
-                        Vegetarian
-                        <div class="checkbox border border-dark ml-2">
-                            <div class="check" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                                </svg>    
-                            </div>
-                        </div>
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" class="custom-checkbox" id="vegan" name="diet" [formControl]="vegan" value="vegan">
-                    <label for="vegan"  class="m-0 d-flex align-items-center">
-                        Vegan
-                        <div class="checkbox border border-dark ml-2">
-                            <div class="check" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                                </svg>    
-                            </div>
-                        </div>
-                    </label>
+                    <input type="text" [formControl]="searchText" (keydown.enter)="$event.preventDefault;find()" placeholder="Ingredients">
                 </div>
             </div>
         </form>

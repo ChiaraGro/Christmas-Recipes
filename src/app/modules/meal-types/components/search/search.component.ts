@@ -1,5 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+<<<<<<< HEAD
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+=======
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+
+>>>>>>> 92a001ceaa7e156d797f49941674226f6f3660e3
 
 export interface SearchForm {
   text: string;
@@ -32,9 +37,6 @@ export class SearchComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { }
 
-  // search(){
-  //   this.searchText.valid && this.onSearch.emit(this.searchText.value)
-  // }
   find(){
 
     this.searchText.valid && this.onSearch.emit({

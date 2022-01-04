@@ -21,3 +21,25 @@ export const onOpen: AnimationTriggerMetadata = trigger(
       ),
     ]
   )
+
+  export const onLoad: AnimationTriggerMetadata = trigger(
+    'onLoad',
+    [
+      transition(
+        ':enter',
+        [
+          style({ transform:'translateY(-12%)', opacity:0}),
+          animate('0.2s ease-out',
+            style({ transform:'translateY(0%)', opacity:1}))
+        ]
+      ),
+      transition(
+        ':leave',
+        [
+          style({ transform:'translateY(0%)', opacity:1}),
+          animate('0.2s ease-out',
+            style({ transform:'translateY(-10%)', opacity:0}))
+        ]
+      ),
+    ]
+  )
