@@ -1,21 +1,33 @@
-<p>home-container works!</p>
-<div class="container my-2">
-  <h1 class="text-3">Cook, Eat, Repeat</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam officia
-    voluptatem tempora possimus, eaque molestias magni soluta eos, veniam itaque
-    neque laborum rerum non sunt sequi reprehenderit est minima nesciunt.
-  </p>
-  <a href="#"></a>
+<div class="container my-5 d-flex">
+  <div class="align-self-center banner">
+      <h1 class="text-3">Cook, Eat, Repeat</h1>
+      <p>Every day a perfect recipe. <br> Search and filter through our entire library of delicious recipes. Cherish your loved ones and feed them well.</p>
+      <a href="#">Get our latest recipes!</a>
+  </div>
+  <img src="../../../../assets/images/img-banner.png" alt="salad" id="img-banner">
 </div>
 
-<div>
-  <!-- our dishes con link -->
+<div class="container">
+  <h2 class="text-3">Our Dishes</h2>
+  <div class="d-flex justify-content-between">
+      <div class="card w-25 p-2 d-flex flex-column justify-content-between align-items-center">
+        <p class="text-center">Hundreds of main dish recipes. Choose from top-rated comfort food, healthy, and vegetarian options. Find your dinner star now!</p>
+        <a href="javascript:void(0)" routerLink="/meals/main courses" class="text-4">Main Dishes</a>
+      </div>
+      <div class="card w-25 p-2 d-flex flex-column justify-content-between align-items-center">
+        <p class="text-center">Make dinner complete with the best side dish recipes! Find the perfect match for your main dish.</p>
+        <a href="javascript:void(0)" routerLink="/meals/side dishes" class="text-4">Side Dishes</a>
+      </div>
+      <div class="card w-25 p-2 d-flex flex-column justify-content-between align-items-center">
+        <p class="text-center">Whether you crave sweet, savory, decadent or healthy, we have hundreds of top-rated dessert recipes to satisfy your taste buds.</p>
+        <a href="javascript:void(0)" routerLink="/meals/desserts" class="text-4">Dessert</a>
+      </div>
+  </div>
 </div>
 
 <!-- Our philosophy -->
 <div class="container mt-5">
-  <h2>Our philosophy</h2>
+  <h2 class="text-3">Our philosophy</h2>
   <div class="container d-flex px-0 justify-content-between">
     <div class="row">
       <div class="col-8 py-4">
@@ -43,7 +55,7 @@
 <!-- subscription newsletters -->
 <div class="w-100 bg-lightgreen my-5">
   <div class="container py-5">
-    <h3 class="mb-5">Stay up to date on new recipes</h3>
+    <h3 class="mb-5 text-4">Stay up to date on new recipes</h3>
     <form class="row">
       <div class="col">
         <input
@@ -73,20 +85,3 @@
   </div>
 </div>
 
-<!--
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
