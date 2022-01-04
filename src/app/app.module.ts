@@ -8,12 +8,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppContainerComponent } from './components/app-container/app-container.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppContainerComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
