@@ -1,4 +1,4 @@
-<div class="container my-5 d-flex">
+<div class="container my-5 py-4 d-flex">
   <div class="align-self-center banner">
     <h1 class="text-3">Cook, Eat, Repeat</h1>
     <p>
@@ -6,7 +6,12 @@
       Search and filter through our entire library of delicious recipes. Cherish
       your loved ones and feed them well.
     </p>
-    <a href="#">Get our latest recipes!</a>
+    <p>
+      Use the filter to see the variety of recipes on offer allowing you to whip
+      up a tasty home cooked meal every day
+    </p>
+    <a href="#">See our latest recipes!</a
+    ><!-- COLLEGARLO CON QUALCHE PUNTO DELLA PAGINA -->
   </div>
   <img
     src="../../../../assets/images/img-banner.png"
@@ -15,16 +20,21 @@
   />
 </div>
 
-<div class="container">
+<!-- Our dishes -->
+<div class="container my-5 py-5">
   <h2 class="text-3">Our Dishes</h2>
-  <div class="d-flex justify-content-between">
+
+  <div class="d-flex justify-content-between my-4">
     <div
       class="card w-25 p-2 d-flex flex-column justify-content-between align-items-center"
     >
+      <img src="../../../../assets/images/main.png" alt="main dish" />
+
       <p class="text-center">
         Hundreds of main dish recipes. Choose from top-rated comfort food,
         healthy, and vegetarian options. Find your dinner star now!
       </p>
+
       <a
         href="javascript:void(0)"
         routerLink="/meals/main courses"
@@ -35,10 +45,13 @@
     <div
       class="card w-25 p-2 d-flex flex-column justify-content-between align-items-center"
     >
+      <img src="../../../../assets/images/side.png" alt="side dish" />
+
       <p class="text-center">
         Make dinner complete with the best side dish recipes! Find the perfect
         match for your main dish.
       </p>
+
       <a
         href="javascript:void(0)"
         routerLink="/meals/side dishes"
@@ -49,10 +62,13 @@
     <div
       class="card w-25 p-2 d-flex flex-column justify-content-between align-items-center"
     >
+      <img src="../../../../assets/images/cake.png" alt="dessert" />
+
       <p class="text-center">
         Whether you crave sweet, savory, decadent or healthy, we have hundreds
         of top-rated dessert recipes to satisfy your taste buds.
       </p>
+
       <a href="javascript:void(0)" routerLink="/meals/desserts" class="text-4"
         >Dessert</a
       >
@@ -65,7 +81,7 @@
   <h2 class="text-3">Our philosophy</h2>
   <div class="container d-flex px-0 justify-content-between">
     <div class="row">
-      <div class="col-8 py-4">
+      <div class="col-8 py-2">
         <p class="quote">
           You must be imaginative, strong-hearted. You must try things that may
           not work, and you must not let anyone define your limits because of
@@ -87,6 +103,7 @@
     alt="signature of Auguste Gusteau"
   />
 </div>
+
 <!-- subscription newsletters -->
 <div class="w-100 bg-lightgreen">
   <div class="container py-5">
