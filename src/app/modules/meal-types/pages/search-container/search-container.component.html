@@ -1,10 +1,10 @@
-<div class="container-fluid pt-5 mx-0 px-0 position-relative">
-    <h1 class="text-3 mx-5 display-5 w-100 text-center text-sm-left"><b>{{mealType | titlecase}}</b></h1>
+<div class="container pt-5 px-0 position-relative">
+    <h1 class="text-3 mx-3 display-5 w-100 text-center text-sm-left"><b>{{mealType | titlecase}}</b></h1>
     <app-search (onSearch)="search($event)" class="position-relative" style="z-index:2!important"></app-search>
     <app-recipes [recipes$]="recipes$" [mealType]="mealType" (selectRecipe)="getRecipeById($event)"></app-recipes>
     <ng-container *ngIf="modalSkeletonLoader || (currentRecipe$ | async)" >
         <div class="modal-container" (click)="closeModal()"[@onOpen]>
-            <app-recipe-modal class="mod col-12 col-sm-10 col-md-9 col-xl-6 m-0 p-0" [recipeDetails$]="currentRecipe$" [modalSkeletonLoader]="modalSkeletonLoader" (closeModal)="closeModal()" (click)="$event.stopPropagation()"></app-recipe-modal>
+            <app-recipe-modal class="mod col-12 col-sm-12 col-md-9 col-xl-12 m-0 p-0" [recipeDetails$]="currentRecipe$" [modalSkeletonLoader]="modalSkeletonLoader" (closeModal)="closeModal()" (click)="$event.stopPropagation()"></app-recipe-modal>
         </div>
     </ng-container>
 </div>

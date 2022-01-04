@@ -1,4 +1,4 @@
-<div class="bg-2 preview-card m-1 m-md-4 mx-md-5 p-1 p-md-4 d-flex flex-column shadow-sm align-items-center justify-content-between">
+<div class="bg-2 preview-card m-1 m-md-4 mx-md-2 p-1 p-md-4 d-flex flex-column shadow-sm align-items-center justify-content-between">
     <div class="w-100 text-center position-relative p-3">
         <img src="{{recipe.image}}" [hidden]="imgLoading" (load)="onLoad()" class="w-100 preview-image shadow-sm mb-3">
         <ngx-skeleton-loader *ngIf="imgLoading" [theme]="{height:'180px'}"></ngx-skeleton-loader>

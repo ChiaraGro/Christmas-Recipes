@@ -1,4 +1,4 @@
-<div *ngIf="(recipes$ | async) as recipes" class=" d-flex flex-wrap p-2 p-md-5 mx-2 mx-md-5">
+<div *ngIf="(recipes$ | async) as recipes" class=" d-flex flex-wrap p-0 mx-1 mx-md-0 my-5">
     <ng-container *ngIf="recipes.length; else recipesFallBack">
         <div *ngFor="let recipe of recipes" class="col-12 col-lg-6 col-xl-4 p-0 p-sm-1" [@onLoad] >
             <app-recipe-card [recipe]="recipe" (selectRecipe)="selectRecipe.emit($event)"></app-recipe-card>
@@ -6,13 +6,14 @@
     </ng-container>
     <ng-template #recipesFallBack>
         <div class="container-fluid text-center">
-            <h3 class="text-4 mt-5"><b>We are sorry, we couldn't find <span class="text-3">{{mealType | titlecase}}</span> for your request. :(</b></h3>
+            <h3 class="text-4 my-5"><b>We are sorry, we couldn't find <span class="text-3">{{mealType | titlecase}}</span> for your request. :(</b></h3>
+            <img src="https://img.beevar.com/upload/8/c2/8c2c2ed608855787.jpg" class="w-100 rounded">
         </div>
     </ng-template>
 </div>
 <div *ngIf="!(recipes$ | async)" class="container-fluid class d-flex flex-wrap justify-content-center align-items-center p-5 mx-5">
-    <div *ngFor="let i of [1,2,3,4,5,6,7,8,9]" class="col-12 col-lg-6 col-xl-4 px-5 p-3">
-        <div class="p-5">
+    <div *ngFor="let i of [1,2,3,4,5,6,7,8,9]" class="col-12 col-lg-6 col-xl-4 px-3 p-3">
+        <div class="p-2">
             <ngx-skeleton-loader  count="1" [theme]="{'width':'100%',height:'380px','border-radius':'26px',display:'block'}" >
             </ngx-skeleton-loader>
         </div>
