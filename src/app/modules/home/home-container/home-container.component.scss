@@ -41,3 +41,32 @@ border-radius: 25px;
 
 }
 
+
+.signature {
+  width: 20rem;
+  position: absolute;
+  top: 85%;
+  right: 30%;
+}
+
+.bg-lightgreen {
+  background-color: #a3da8d;
+}
+
+.dark-gren {
+  background-color: #146356;
+}
+
+.quote {
+  font-family: "Roboto", sans-serif;
+}
+
+.white {
+  color: #fff;
+}
+
+button.submit:hover {
+  border: 2px solid #146356;
+  color: #146356;
+  background-color: white;
+}
