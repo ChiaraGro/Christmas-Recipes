@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { objectEach } from 'highcharts';
 
 export interface SearchForm {
   text: string;
@@ -37,7 +36,7 @@ export class SearchComponent implements OnInit {
   //   this.searchText.valid && this.onSearch.emit(this.searchText.value)
   // }
   find(){
- 
+
     this.searchText.valid && this.onSearch.emit({
       text: this.searchText.value,
       intolerances: [...Object.entries(this.intoleranceGroup.value).filter(el => el[1] == true).map(el => el[0])],
@@ -45,16 +44,16 @@ export class SearchComponent implements OnInit {
       vegan: this.vegan.value,
       vegetarian: this.vegetarian.value
     })
-   
+
   }
 
   buildFilters(filter: string[]){
     const formGroup: { [key:string]:boolean } = {};
     filter.forEach(int => {
-      formGroup[int] = false 
+      formGroup[int] = false
     })
     return formGroup
-    
+
   }
 
   ngOnInit(): void {
