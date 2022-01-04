@@ -1,0 +1,25 @@
+#img-banner{
+  width: 45%;
+}
+
+.banner > p{
+  line-height: 30pt;
+  font-size: larger;
+}
+
+.banner > a{
+text-decoration: none;
+background-color: #A3DA8D;
+color: white;
+padding: 3%;
+border-radius: 25px;
+}
+
+.banner > a:hover{
+  background-color: white;
+  color: #A3DA8D;
+  transition: 0.4s;
+  font-weight: bolder;
+}
+
+
