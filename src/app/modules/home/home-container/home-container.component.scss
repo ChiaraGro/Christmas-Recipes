@@ -1,33 +1,38 @@
-#img-banner{
+#img-banner {
   width: 45%;
 }
 
-.banner > p{
+.banner > p {
   line-height: 30pt;
   font-size: larger;
 }
 
-.banner > a{
-text-decoration: none;
-background-color: #A3DA8D;
-color: white;
-padding: 3%;
-border-radius: 25px;
+.banner > a {
+  text-decoration: none;
+  background-color: #a3da8d;
+  color: white;
+  padding: 3%;
+  border-radius: 25px;
 }
 
-.banner > a:hover{
+.banner > h1 {
+  font-weight: 700;
+  font-size: 65px;
+}
+
+.banner > a:hover {
   background-color: white;
-  color: #A3DA8D;
+  color: #a3da8d;
   transition: 0.4s;
   font-weight: bolder;
 }
 
-.card{
+.card {
   background-color: #fef1bd;
   border-radius: 38px;
 }
 
-.card > a{
+.card > a {
   border-radius: 38px;
   border: solid 5px #166457;
   text-align: center;
@@ -35,13 +40,11 @@ border-radius: 25px;
   width: 50%;
 }
 
-.card > a:hover{
+.card > a:hover {
   color: #fef1bd;
   background-color: #166457;
   transition: 0.5s;
-
 }
-
 
 .signature {
   width: 20rem;
