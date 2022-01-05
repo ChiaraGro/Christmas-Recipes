@@ -1,33 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
-@import 'src/app/shared/models/utilities/palette.scss';
-.bg-1{
-    background-color: $color1
+@import "src/app/shared/models/utilities/palette.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
 }
-.bg-2{
-    background-color: $color2
+.bg-1 {
+  background-color: $color1;
 }
-.bg-3{
-    background-color: $color3
+.bg-2 {
+  background-color: $color2;
 }
-.bg-4{
-    background-color: $color4
+.bg-3 {
+  background-color: $color3;
 }
-.text-1{
-    color: $color1
+.bg-4 {
+  background-color: $color4;
 }
-.text-2{
-    color: $color2
+.text-1 {
+  color: $color1;
 }
-.text-3{
-    color: $color3
+.text-2 {
+  color: $color2;
 }
-.text-4{
-    color: $color4
+.text-3 {
+  color: $color3;
 }
-.border-4{
-    border-color:$color4!important
+.text-4 {
+  color: $color4;
+}
+.border-4 {
+  border-color: $color4 !important;
 }
