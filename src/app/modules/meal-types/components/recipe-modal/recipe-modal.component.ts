@@ -10,7 +10,7 @@ import { RecipeDetails } from 'src/app/shared/models/recipeDetail.model';
 export class RecipeModalComponent implements OnInit {
   
   @Output() closeModal = new EventEmitter();
-  @Input() recipeDetails$?: Observable<RecipeDetails>;
+  @Input() recipeDetails$?: Observable<RecipeDetails | undefined>;
   @Input() modalSkeletonLoader = false;
 
   showSummary = false;

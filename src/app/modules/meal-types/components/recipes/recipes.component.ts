@@ -11,7 +11,7 @@ import { IRecipe } from 'src/app/shared/models/recipe.model';
 })
 export class RecipesComponent implements OnInit {
   @Output() selectRecipe = new EventEmitter<number>();
-  @Input() recipes$!: Observable<IRecipe[]>;
+  @Input() recipes$?: Observable<IRecipe[] | undefined>;
   @Input() mealType!: string;
 
   @Input() skeletonLoader = false;

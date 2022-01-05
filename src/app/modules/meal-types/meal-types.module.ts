@@ -10,6 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipeModalComponent } from './components/recipe-modal/recipe-modal.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
+import { StoreModule } from '@ngrx/store';
+import { recipesReducer } from './store/recipes.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { recipesEffects } from './store/recipes.effects';
 
 
 @NgModule({
@@ -25,7 +29,10 @@ import { RecipeCardComponent } from './components/recipe-card/recipe-card.compon
     CommonModule,
     MealTypesRoutingModule,
     ReactiveFormsModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    StoreModule.forFeature('recipes', recipesReducer),
+    EffectsModule.forFeature([recipesEffects]),
+    
   ]
 })
 export class MealTypesModule { }

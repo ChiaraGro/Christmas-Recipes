@@ -9,6 +9,9 @@ import { AppContainerComponent } from './components/app-container/app-container.
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './layout/footer/footer.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,12 @@ import { FooterComponent } from './layout/footer/footer.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot(),
+    StoreDevtoolsModule.instrument({
+      maxAge: 20
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

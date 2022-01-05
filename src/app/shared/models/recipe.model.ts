@@ -32,43 +32,6 @@ export interface ExtendedIngredient {
     measures: Measures;
 }
 
-export interface Ingredient {
-    id: number;
-    name: string;
-    localizedName: string;
-    image: string;
-}
-
-export interface Temperature {
-    number: number;
-    unit: string;
-}
-
-export interface Equipment {
-    id: number;
-    name: string;
-    localizedName: string;
-    image: string;
-    temperature: Temperature;
-}
-
-export interface Length {
-    number: number;
-    unit: string;
-}
-
-export interface Step {
-    number: number;
-    step: string;
-    ingredients: Ingredient[];
-    equipment: Equipment[];
-    length: Length;
-}
-
-export interface AnalyzedInstruction {
-    name: string;
-    steps: Step[];
-}
 
 export interface Recipe {
     vegetarian: boolean;
@@ -103,15 +66,41 @@ export interface Recipe {
     diets: string[];
     occasions: string[];
     instructions: string;
-    analyzedInstructions: AnalyzedInstruction[];
     originalId?: any;
     spoonacularSourceUrl: string;
     preparationMinutes?: number;
     cookingMinutes?: number;
 }
 
+export interface RecipeDetails {
+    vegetarian: boolean;
+    vegan: boolean;
+    glutenFree: boolean;
+    dairyFree: boolean;
+    veryHealthy: boolean;
+    cheap: boolean;
+    veryPopular: boolean;
+    sustainable: boolean;
+    healthScore: number;
+    pricePerServing: number;
+    extendedIngredients: ExtendedIngredient[];
+    id: number;
+    title: string;
+    readyInMinutes: number;
+    servings: number;
+    sourceUrl: string;
+    image: string;
+    imageType: string;
+    summary: string;
+    cuisines: string[];
+    dishTypes: string[];
+    diets: string[];
+    occasions: string[];
+    instructions: string;
+}
+
 export interface IDetailsRes {
-    recipes: Recipe[];
+    recipes: RecipeDetails[];
 }
 
 export interface BasicRecipe {
