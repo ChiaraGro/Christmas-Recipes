@@ -13,6 +13,7 @@
   color: white;
   padding: 3%;
   border-radius: 25px;
+  font-weight: 600;
 }
 
 .banner > h1 {
@@ -30,14 +31,19 @@
 .card {
   background-color: #fef1bd;
   border-radius: 38px;
+  border: none;
 }
 
 .card > a {
   border-radius: 38px;
-  border: solid 5px #166457;
+
   text-align: center;
   text-decoration: none;
   width: 50%;
+
+  background-color: #a3da8d;
+  color: white;
+  font-weight: 600;
 }
 
 .card > a:hover {
