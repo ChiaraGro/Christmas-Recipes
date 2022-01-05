@@ -85,7 +85,7 @@
                     </svg>
                 </button>  
             </div>
-            <div class="pb-5">
+            <div class="pb-5 w-100 d-flex flex-column align-items-center">
                 <img [src]="recipe.image" [hidden]="imgLoading" (load)="onLoad()" class="w-100 align-self-center rounded my-3 shadow-sm">
                 <ngx-skeleton-loader *ngIf="imgLoading" [theme]="{height:'400px'}"></ngx-skeleton-loader>
             </div>

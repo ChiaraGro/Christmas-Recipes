@@ -11,7 +11,8 @@ export class RecipeCardComponent implements OnInit {
   @Output() selectRecipe = new EventEmitter<number>();
   @Input() recipe!: IRecipe;
 
-  imgLoading: boolean = true
+  public imgLoading: boolean = true
+  
   constructor() { }
   
   onLoad() {

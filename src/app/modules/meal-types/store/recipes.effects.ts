@@ -2,10 +2,10 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
-import { map, switchMap, tap } from "rxjs/operators";
+import { catchError, map, switchMap, tap } from "rxjs/operators";
 import { IDetailsRes, IBasicRes, IRecipe, RecipeDetails } from "src/app/shared/models/recipe.model";
 import { environment } from "src/environments/environment.prod";
-import { searchRecipes, searchRecipesSuccess, getRecipeDetail, getRecipeDetailSuccess } from "./recipes.actions";
+import { searchRecipes, searchRecipesSuccess, getRecipeDetail, getRecipeDetailSuccess, searchRecipesFailed } from "./recipes.actions";
 
 @Injectable()
 export class recipesEffects {
@@ -18,7 +18,7 @@ export class recipesEffects {
                     {recipes: (JSON.parse(sessionStorage.getItem(mealType)!) as IRecipe[]) }
                     ));
             }
-            console.log(mealType)
+
             let params = new HttpParams()
                 .set('apiKey', environment.apiKey)
                 .set('type', mealType)
@@ -35,34 +35,32 @@ export class recipesEffects {
                     map(res => 'results' in res ? res.results : res.recipes),
                     map(recipes => recipes.map(recipe => ({id:recipe.id, title:recipe.title, image:recipe.image, imageType:recipe.imageType} as IRecipe))),
                     tap(recipes => search.text == '' && sessionStorage.setItem(mealType, JSON.stringify(recipes))),
-                    map(recipes => searchRecipesSuccess({recipes}))
-        
-      )  
-        })
-        ));
-        getRecipe = createEffect(()=> this.actions$.pipe(
-    
-            ofType(getRecipeDetail),
-            switchMap(({id})=> {
-                if (localStorage.getItem(id.toString())) {
-                    return of(getRecipeDetailSuccess(
-                        {recipe: (JSON.parse(localStorage.getItem(id.toString())!) as RecipeDetails) }
-                        ));
-                }
-        
-                const params = new HttpParams()
-                .set('apiKey', environment.apiKey)
-                
-                return this.http.get<RecipeDetails>(`${environment.apiUrl}${id}/information`, {params})
-                .pipe(
-                    tap(recipe => localStorage.setItem(recipe.id.toString(), JSON.stringify(recipe) )),
-                    map(recipe => getRecipeDetailSuccess({recipe}))
-          )
+                    map(recipes => searchRecipesSuccess({recipes})),
+                    catchError(() => of(searchRecipesFailed()))
+                )  
             })
-        ))
+        ));
 
+    getRecipe = createEffect(()=> this.actions$.pipe(
 
-
+        ofType(getRecipeDetail),
+        switchMap(({id})=> {
+            if (localStorage.getItem(id.toString())) {
+                return of(getRecipeDetailSuccess(
+                    {recipe: (JSON.parse(localStorage.getItem(id.toString())!) as RecipeDetails) }
+                    ));
+            }
+    
+            const params = new HttpParams()
+            .set('apiKey', environment.apiKey)
+            
+            return this.http.get<RecipeDetails>(`${environment.apiUrl}${id}/information`, {params})
+            .pipe(
+                tap(recipe => localStorage.setItem(recipe.id.toString(), JSON.stringify(recipe) )),
+                map(recipe => getRecipeDetailSuccess({recipe}))
+        )
+        })
+    ))
 
     constructor(
         private actions$: Actions,

@@ -13,9 +13,10 @@ export class RecipeModalComponent implements OnInit {
   @Input() recipeDetails$?: Observable<RecipeDetails | undefined>;
   @Input() modalSkeletonLoader = false;
 
-  showSummary = false;
+  public showSummary = false;
 
-  imgLoading: boolean = true
+  public imgLoading: boolean = true
+  
   constructor() { }
   
   onLoad() {

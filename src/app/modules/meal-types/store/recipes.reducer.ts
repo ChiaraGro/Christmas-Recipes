@@ -1,13 +1,26 @@
 import { createReducer, on } from "@ngrx/store";
-import { searchRecipesSuccess, getRecipeDetailSuccess, resetRecipeDetail, emptyRecipes } from "./recipes.actions";
+import { searchRecipesSuccess, getRecipeDetailSuccess, searchRecipesFailed, searchRecipes, getRecipeDetail } from "./recipes.actions";
 import { recipesState } from "./recipes.state";
 
 export const recipesReducer = createReducer(
     recipesState,
+    on(searchRecipes, (state) => {
+        return {
+            ...state,
+            searchResults: undefined,
+            searchError: false
+        }
+    }),
     on(searchRecipesSuccess, (state, action) => {
         return {
             ...state,
             searchResults: [...action.recipes]
+        }
+    }),
+    on(getRecipeDetail, (state) => {
+        return {
+            ...state,
+            currentRecipe: undefined
         }
     }),
     on(getRecipeDetailSuccess, (state, action) => {
@@ -16,16 +29,10 @@ export const recipesReducer = createReducer(
             currentRecipe: {...action.recipe}
         }
     }),
-    on(resetRecipeDetail, (state) => {
+    on(searchRecipesFailed, (state) => {
         return {
             ...state,
-            currentRecipe: undefined
-        }
-    }),
-    on(emptyRecipes, (state) => {
-        return {
-            ...state,
-            searchResults: undefined
+            searchError: true
         }
     })
 )

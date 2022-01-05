@@ -10,3 +10,7 @@ export const getSearchResults = createSelector(getRecipesState, (state) => {
 export const getCurrentRecipe = createSelector(getRecipesState, (state) => {
     return state.currentRecipe
 });
+
+export const getSearchError = createSelector(getRecipesState, (state) => {
+    return state.searchError
+})
