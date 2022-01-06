@@ -6,32 +6,39 @@
   line-height: 30pt;
   font-size: larger;
 }
-
-.banner > a {
-  text-decoration: none;
-  background-color: #a3da8d;
-  color: white;
-  padding: 3%;
-  border-radius: 25px;
-  font-weight: 600;
+.banner > a{
+      background-color: #a3da8d;
+      text-decoration: none;
+      transition: 0.4s;
+      color: white;
+      padding: 2% 4.5%;
+      border-radius: 25px;
+      font-weight: 600;
+      letter-spacing:0.1rem;
+      border:solid 1px transparent;
+      &:hover{
+        background-color: white;
+        color: #a3da8d;
+        border:solid 1px #a3da8d 
+      }  
 }
 
 .banner > h1 {
   font-weight: 700;
   font-size: 65px;
 }
-
-.banner > a:hover {
-  background-color: white;
-  color: #a3da8d;
-  transition: 0.4s;
-  font-weight: bolder;
+h2{
+  font-size:45px;
+  font-weight: 700;
+  margin-bottom:26px
 }
 
+
 .card {
-  background-color: #fef1bd;
-  border-radius: 38px;
   border: none;
+  .mealtype-img{
+    max-width:250px
+  }
 }
 
 .card > a {
@@ -66,12 +73,16 @@
 
 .quote {
   font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size:18px
 }
 
 .white {
   color: #fff;
 }
-
+button.submit{
+  border: solid 2px transparent
+}
 button.submit:hover {
   border: 2px solid #146356;
   color: #146356;
