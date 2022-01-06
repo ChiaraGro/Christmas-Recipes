@@ -3,7 +3,9 @@
   font-size: larger;
   font-weight: 600;
 }
-
+.nav-link.active-route{
+  color: #a3da8d
+}
 .nav-link:hover {
   color: #a3da8d;
   transition: 0.5s;

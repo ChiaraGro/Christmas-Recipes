@@ -85,7 +85,7 @@
                     </svg>
                 </button>  
             </div>
-            <div class="pb-5">
+            <div class="pb-5 w-100 d-flex flex-column align-items-center">
                 <img [src]="recipe.image" [hidden]="imgLoading" (load)="onLoad()" class="w-100 align-self-center rounded my-3 shadow-sm">
                 <ngx-skeleton-loader *ngIf="imgLoading" [theme]="{height:'400px'}"></ngx-skeleton-loader>
             </div>
@@ -137,10 +137,10 @@
     </div>
 </ng-container>
 <ng-container *ngIf="!(recipeDetails$ | async) && modalSkeletonLoader">
-    <div class="card overflow-hidden border-0">
+    <div class="card overflow-hidden border-0 bg-2">
         <div class="w-100 p-5 d-flex flex-column">
             <ngx-skeleton-loader count="1" [theme]="{height:'34px'}"></ngx-skeleton-loader>
-            <ngx-skeleton-loader count="1" [theme]="{height:'16px',display:'inline','width':'140px','margin-right':'10px'}"></ngx-skeleton-loader>
+            <ngx-skeleton-loader count="1" [theme]="{height:'16px',display:'inline',width:'140px','margin-right':'10px'}"></ngx-skeleton-loader>
             <div class="my-3">
                 <ngx-skeleton-loader count="3" ></ngx-skeleton-loader>
             </div>

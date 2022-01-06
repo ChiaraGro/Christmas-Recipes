@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { onOpen } from 'src/app/shared/models/animations/toggle.animation';
 import { IRecipe} from 'src/app/shared/models/recipe.model';
 import { RecipeDetails } from 'src/app/shared/models/recipeDetail.model';
 import { SearchForm } from '../../components/search/search.component';
-import { RecipesService } from '../../services/recipes.service';
+import { getRecipeDetail, searchRecipes } from '../../store/recipes.actions';
+import { getCurrentRecipe, getSearchError, getSearchResults} from '../../store/recipes.selectors';
+import { RecipesState } from '../../store/recipes.state';
 
 @Component({
   selector: 'app-search-container',
@@ -15,38 +18,48 @@ import { RecipesService } from '../../services/recipes.service';
 })
 export class SearchContainerComponent implements OnInit {
 
-  mealType!: string;
-  recipes$!: Observable<IRecipe[]>;
-  currentRecipe$?: Observable<RecipeDetails>;
-  modalSkeletonLoader = false;
+  public mealType!: string;
+  public recipes$?: Observable<IRecipe[] | undefined>;
+  public currentRecipe$?: Observable<RecipeDetails | undefined>;
+  public searchError$!: Observable<boolean>;
+  public modalSkeletonLoader = false;
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly recipeService: RecipesService
+    private readonly store: Store<RecipesState>
   ) { }
 
-  ngOnInit(): void {
-    
-    this.route.params
-    .subscribe(params => {
-      this.mealType = params.mealType;
-      this.search({text: ''})
-    })
-  }
-
+  
   search(form: SearchForm){
-    this.recipes$ = this.recipeService.search(form,'complexSearch', this.mealType)
+    
+    this.store.dispatch(searchRecipes({mealType: this.mealType, search: form}));
+    
   }
-
+  
   getRecipeById(id: number){
+    
     this.modalSkeletonLoader = true;
-    this.currentRecipe$ = this.recipeService.getRecipeById(id)
+    this.store.dispatch(getRecipeDetail({id}))
+    this.currentRecipe$ = this.store.select(getCurrentRecipe);
+    
   }
-
+  
   closeModal(){
     
     this.currentRecipe$ = undefined;
-    this.modalSkeletonLoader = false
+    this.modalSkeletonLoader = false;
   }
+  
+  ngOnInit(): void {
 
+    this.recipes$ = this.store.select(getSearchResults);
+    this.searchError$ = this.store.select(getSearchError);
+    
+    this.route.params
+      .subscribe(params => {
+        this.mealType = params.mealType;
+        this.search({text: ''})
+    })
+
+  }
 }
